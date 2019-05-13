@@ -49,6 +49,7 @@ protected:
 // Implementation
 public:
 	virtual ~COutputWnd();
+	void appendDebug(CString &str);
 
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);

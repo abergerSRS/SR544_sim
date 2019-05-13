@@ -9,9 +9,11 @@
 #include "SR544_sim.h"
 #endif
 
+#include "MainFrm.h"
 #include "SR544_simDoc.h"
 #include "SR544_simView.h"
 #include "motorDrive.h"
+#include "frontpanel.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -30,6 +32,7 @@ BEGIN_MESSAGE_MAP(CSR544simView, CFormView)
 	ON_WM_CONTEXTMENU()
 	ON_WM_RBUTTONUP()
 	ON_BN_CLICKED(IDC_BTN_SYNC, &CSR544simView::OnBnClickedBtnSync)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 // CSR544simView construction/destruction
@@ -64,7 +67,8 @@ void CSR544simView::OnInitialUpdate()
 	CFormView::OnInitialUpdate();
 	GetParentFrame()->RecalcLayout();
 	ResizeParentToFit();
-	
+
+	SetTimer(1000, 10, NULL);
 }
 
 
@@ -141,6 +145,31 @@ void CSR544simView::OnBnClickedBtnSync()
 {
 	// TODO: Add your control notification handler code here
 	OutputDebugString(_T("Sync clicked\n"));
+	CString str(_T("Hello"));
+	str += " World";
+	str.Format(_T("%s -> This is a number: %d"), str, 5);
+
+	appendOutput(CString(_T("Send to output")));
+	appendOutput(str);
 	get_N_outer();
 	mRisingEdge.SetCheck(!mRisingEdge.GetCheck());
+	onButton(BTN_SYNCEDGE);
+}
+
+
+void CSR544simView::OnTimer(UINT_PTR nIDEvent)
+{
+	// TODO: Add your message handler code here and/or call default
+	if (nIDEvent == 1000) {
+		// updateDisplay()
+	}
+
+	CFormView::OnTimer(nIDEvent);
+}
+
+void CSR544simView::appendOutput(CString &str)
+{
+	CMainFrame *pFrame = (CMainFrame *)GetParentFrame();
+	COutputWnd *pOutput = pFrame->getOutputWnd();
+	pOutput->appendDebug(str);
 }

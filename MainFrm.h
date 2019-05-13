@@ -56,6 +56,9 @@ protected:
 
 	BOOL CreateDockingWindows();
 	void SetDockingWindowIcons(BOOL bHiColorIcons);
+
+public:
+	COutputWnd *getOutputWnd(void) { return &m_wndOutput; }
 };
 
 

@@ -113,9 +113,11 @@ void COutputWnd::FillBuildWindow()
 
 void COutputWnd::FillDebugWindow()
 {
+#if 0
 	m_wndOutputDebug.AddString(_T("Debug output is being displayed here."));
 	m_wndOutputDebug.AddString(_T("The output is being displayed in rows of a list view"));
 	m_wndOutputDebug.AddString(_T("but you can change the way it is displayed as you wish..."));
+#endif
 }
 
 void COutputWnd::FillFindWindow()
@@ -123,6 +125,12 @@ void COutputWnd::FillFindWindow()
 	m_wndOutputFind.AddString(_T("Find output is being displayed here."));
 	m_wndOutputFind.AddString(_T("The output is being displayed in rows of a list view"));
 	m_wndOutputFind.AddString(_T("but you can change the way it is displayed as you wish..."));
+}
+
+
+void COutputWnd::appendDebug(CString &str)
+{
+	m_wndOutputDebug.AddString(str);
 }
 
 void COutputWnd::UpdateFonts()
