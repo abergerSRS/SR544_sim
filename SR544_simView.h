@@ -53,8 +53,11 @@ protected:
 public:
 	afx_msg void OnBnClickedBtnSync();
 	CButton mRisingEdge;
+	CButton mFallingEdge;
+	CButton mSineEdge;
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	void appendOutput(CString &str);
+	void refreshDisplay(void);
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp

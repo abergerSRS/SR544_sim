@@ -53,6 +53,8 @@ void CSR544simView::DoDataExchange(CDataExchange* pDX)
 {
 	CFormView::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_RISING_EDGE, mRisingEdge);
+	DDX_Control(pDX, IDC_FALLING_EDGE, mFallingEdge);
+	DDX_Control(pDX, IDC_SINE, mSineEdge);
 }
 
 BOOL CSR544simView::PreCreateWindow(CREATESTRUCT& cs)
@@ -70,6 +72,9 @@ void CSR544simView::OnInitialUpdate()
 	ResizeParentToFit();
 
 	SetTimer(1000, 10, NULL);
+
+	updateDisplay();
+	refreshDisplay();
 }
 
 
@@ -170,10 +175,10 @@ void CSR544simView::OnTimer(UINT_PTR nIDEvent)
 	if (nIDEvent == 1000) {
 		// updateDisplay()
 		if (isDisplayDirty()) {
-			mRisingEdge.SetCheck(!mRisingEdge.GetCheck());
-
+			refreshDisplay();
 			DisplayIsClean();
 		}
+		
 	}
 
 	CFormView::OnTimer(nIDEvent);
@@ -184,4 +189,12 @@ void CSR544simView::appendOutput(CString &str)
 	CMainFrame *pFrame = (CMainFrame *)GetParentFrame();
 	COutputWnd *pOutput = pFrame->getOutputWnd();
 	pOutput->appendDebug(str);
+}
+
+void CSR544simView::refreshDisplay(void)
+{	
+	mRisingEdge.SetCheck(getLED(LED_SYNC_RISE));
+	mFallingEdge.SetCheck(getLED(LED_SYNC_FALL));
+	mSineEdge.SetCheck(getLED(LED_SYNC_SINE));
+
 }
