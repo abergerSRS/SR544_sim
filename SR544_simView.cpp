@@ -34,6 +34,7 @@ BEGIN_MESSAGE_MAP(CSR544simView, CFormView)
 	ON_WM_RBUTTONUP()
 	ON_BN_CLICKED(IDC_BTN_SYNC, &CSR544simView::OnBnClickedBtnSync)
 	ON_WM_TIMER()
+	ON_BN_CLICKED(IDC_BTN_SRC, &CSR544simView::OnBnClickedBtnSrc)
 END_MESSAGE_MAP()
 
 // CSR544simView construction/destruction
@@ -55,6 +56,10 @@ void CSR544simView::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_RISING_EDGE, mRisingEdge);
 	DDX_Control(pDX, IDC_FALLING_EDGE, mFallingEdge);
 	DDX_Control(pDX, IDC_SINE, mSineEdge);
+	DDX_Control(pDX, IDC_INT_RATE, mIntRate);
+	DDX_Control(pDX, IDC_VCO_IN, mVcoIn);
+	DDX_Control(pDX, IDC_AC_LINE, mAcLine);
+	DDX_Control(pDX, IDC_EXT_SYNC, mExtSync);
 }
 
 BOOL CSR544simView::PreCreateWindow(CREATESTRUCT& cs)
@@ -146,29 +151,6 @@ CSR544simDoc* CSR544simView::GetDocument() const // non-debug version is inline
 
 // CSR544simView message handlers
 
-
-void CSR544simView::OnBnClickedBtnSync()
-{
-	// TODO: Add your control notification handler code here
-	// Example for writing Debug output 
-	/*
-	OutputDebugString(_T("Sync clicked\n"));
-	*/
-
-	// Example for writing Debug output to Main Form window
-	/*
-	CString str(_T("Hello"));
-	str += " World";
-	str.Format(_T("%s -> This is a number: %d"), str, 5);
-
-	appendOutput(CString(_T("Send to output")));
-	appendOutput(str);
-	*/	
-	
-	onButton(BTN_SYNCEDGE);
-}
-
-
 void CSR544simView::OnTimer(UINT_PTR nIDEvent)
 {
 	// TODO: Add your message handler code here and/or call default
@@ -197,4 +179,35 @@ void CSR544simView::refreshDisplay(void)
 	mFallingEdge.SetCheck(getLED(LED_SYNC_FALL));
 	mSineEdge.SetCheck(getLED(LED_SYNC_SINE));
 
+	mIntRate.SetCheck(getLED(LED_SRC_INT));
+	mVcoIn.SetCheck(getLED(LED_SRC_VCO));
+	mAcLine.SetCheck(getLED(LED_SRC_AC));
+	mExtSync.SetCheck(getLED(LED_SRC_EXT));
+}
+
+void CSR544simView::OnBnClickedBtnSync()
+{
+	// TODO: Add your control notification handler code here
+	// Example for writing Debug output 
+	/*
+	OutputDebugString(_T("Sync clicked\n"));
+	*/
+
+	// Example for writing Debug output to Main Form window
+	/*
+	CString str(_T("Hello"));
+	str += " World";
+	str.Format(_T("%s -> This is a number: %d"), str, 5);
+
+	appendOutput(CString(_T("Send to output")));
+	appendOutput(str);
+	*/
+
+	onButton(BTN_SYNCEDGE);
+}
+
+void CSR544simView::OnBnClickedBtnSrc()
+{
+	// TODO: Add your control notification handler code here
+	onButton(BTN_SOURCE);
 }

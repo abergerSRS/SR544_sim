@@ -51,13 +51,18 @@ protected:
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnBnClickedBtnSync();
 	CButton mRisingEdge;
 	CButton mFallingEdge;
 	CButton mSineEdge;
+	CButton mIntRate;
+	CButton mVcoIn;
+	CButton mAcLine;
+	CButton mExtSync;
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	void appendOutput(CString &str);
 	void refreshDisplay(void);
+	afx_msg void OnBnClickedBtnSync();
+	afx_msg void OnBnClickedBtnSrc();
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp

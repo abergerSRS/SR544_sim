@@ -88,8 +88,13 @@
 #define IDC_BTN_SYNC                    1000
 #define IDC_RISING_EDGE                 1001
 #define IDC_FALLING_EDGE                1002
-#define IDC_CHECK2                      1003
 #define IDC_SINE                        1003
+#define IDC_BUTTON1                     1004
+#define IDC_BTN_SRC                     1004
+#define IDC_INT_RATE                    1005
+#define IDC_VCO_IN                      1006
+#define IDC_AC_LINE                     1007
+#define IDC_EXT_SYNC                    1008
 
 // Next default values for new objects
 // 
@@ -97,7 +102,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        311
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1004
+#define _APS_NEXT_CONTROL_VALUE         1009
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif
