@@ -51,18 +51,45 @@ protected:
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	DECLARE_MESSAGE_MAP()
 public:
+	// Sync Edge Check Boxes
 	CButton mRisingEdge;
 	CButton mFallingEdge;
 	CButton mSineEdge;
+	// Source Check Boxes
 	CButton mIntRate;
 	CButton mVcoIn;
 	CButton mAcLine;
 	CButton mExtSync;
+	// Control Check Boxes
+	CButton mShaft;
+	CButton mInner;
+	CButton mOuter;
+	// Multiplier Check Boxes
+	CButton mMult_NM;
+	CButton mMult_1;
+	// Monitor Check Boxes
+	CButton mMonOuter;
+	CButton mMonInner;
+	CButton mMonShaft;
+	CButton mMonSource;
+	// Settings Check Boxes
+	CButton mSetIntRate;
+	CButton mSetPhase;
+	CButton mSetMultN;
+	CButton mSetDivM;
+	CButton mSetVCOFS;
+
+	// Buttons
+	afx_msg void OnBnClickedBtnSync();
+	afx_msg void OnBnClickedBtnSrc();	
+	afx_msg void OnBnClickedBtnCtrl();	
+	afx_msg void OnBnClickedSelectL();
+	afx_msg void OnBnClickedSelectR();
+
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	void appendOutput(CString &str);
 	void refreshDisplay(void);
-	afx_msg void OnBnClickedBtnSync();
-	afx_msg void OnBnClickedBtnSrc();
+	
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp

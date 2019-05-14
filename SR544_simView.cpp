@@ -12,6 +12,7 @@
 #include "MainFrm.h"
 #include "SR544_simDoc.h"
 #include "SR544_simView.h"
+#include "instrument.h"
 #include "motorDrive.h"
 #include "frontpanel.h"
 #include "display.h"
@@ -35,6 +36,9 @@ BEGIN_MESSAGE_MAP(CSR544simView, CFormView)
 	ON_BN_CLICKED(IDC_BTN_SYNC, &CSR544simView::OnBnClickedBtnSync)
 	ON_WM_TIMER()
 	ON_BN_CLICKED(IDC_BTN_SRC, &CSR544simView::OnBnClickedBtnSrc)
+	ON_BN_CLICKED(IDC_BTN_CTRL, &CSR544simView::OnBnClickedBtnCtrl)
+	ON_BN_CLICKED(IDC_SELECT_L, &CSR544simView::OnBnClickedSelectL)
+	ON_BN_CLICKED(IDC_SELECT_R, &CSR544simView::OnBnClickedSelectR)
 END_MESSAGE_MAP()
 
 // CSR544simView construction/destruction
@@ -60,6 +64,20 @@ void CSR544simView::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_VCO_IN, mVcoIn);
 	DDX_Control(pDX, IDC_AC_LINE, mAcLine);
 	DDX_Control(pDX, IDC_EXT_SYNC, mExtSync);
+	DDX_Control(pDX, IDC_SHAFT, mShaft);
+	DDX_Control(pDX, IDC_INNER, mInner);
+	DDX_Control(pDX, IDC_OUTER, mOuter);
+	DDX_Control(pDX, IDC_MULT_NM, mMult_NM);
+	DDX_Control(pDX, IDC_MULT_1, mMult_1);
+	DDX_Control(pDX, IDC_MON_OUTER, mMonOuter);
+	DDX_Control(pDX, IDC_MON_INNER, mMonInner);
+	DDX_Control(pDX, IDC_MON_SHAFT, mMonShaft);
+	DDX_Control(pDX, IDC_MON_SRCE, mMonSource);
+	DDX_Control(pDX, IDC_SET_INT, mSetIntRate);
+	DDX_Control(pDX, IDC_SET_PHASE, mSetPhase);
+	DDX_Control(pDX, IDC_SET_MULTN, mSetMultN);
+	DDX_Control(pDX, IDC_SET_DIVM, mSetDivM);
+	DDX_Control(pDX, IDC_SET_VCOFS, mSetVCOFS);
 }
 
 BOOL CSR544simView::PreCreateWindow(CREATESTRUCT& cs)
@@ -78,6 +96,8 @@ void CSR544simView::OnInitialUpdate()
 
 	SetTimer(1000, 10, NULL);
 
+	initInstrument();
+	initFrontPanel();
 	updateDisplay();
 	refreshDisplay();
 }
@@ -158,9 +178,7 @@ void CSR544simView::OnTimer(UINT_PTR nIDEvent)
 		// updateDisplay()
 		if (isDisplayDirty()) {
 			refreshDisplay();
-			DisplayIsClean();
-		}
-		
+		}		
 	}
 
 	CFormView::OnTimer(nIDEvent);
@@ -175,14 +193,38 @@ void CSR544simView::appendOutput(CString &str)
 
 void CSR544simView::refreshDisplay(void)
 {	
+	// refresh Sync Edge LEDs
 	mRisingEdge.SetCheck(getLED(LED_SYNC_RISE));
 	mFallingEdge.SetCheck(getLED(LED_SYNC_FALL));
 	mSineEdge.SetCheck(getLED(LED_SYNC_SINE));
 
+	// refresh Source LEDs
 	mIntRate.SetCheck(getLED(LED_SRC_INT));
 	mVcoIn.SetCheck(getLED(LED_SRC_VCO));
 	mAcLine.SetCheck(getLED(LED_SRC_AC));
 	mExtSync.SetCheck(getLED(LED_SRC_EXT));
+
+	// refresh Control LEDs
+	mShaft.SetCheck(getLED(LED_CTRL_SHAFT));
+	mInner.SetCheck(getLED(LED_CTRL_INNER));
+	mOuter.SetCheck(getLED(LED_CTRL_OUTER));
+
+	// refresh Multiplier LEDs
+	mMult_NM.SetCheck(getLED(LED_MULT_NM));
+	mMult_1.SetCheck(getLED(LED_MULT_1));
+
+	// refresh Main Display
+	mMonOuter.SetCheck(getLED(LED_MON_OUTER));
+	mMonInner.SetCheck(getLED(LED_MON_INNER));
+	mMonShaft.SetCheck(getLED(LED_MON_SHAFT));
+	mMonSource.SetCheck(getLED(MD_MON_SOURCE));
+	mSetIntRate.SetCheck(getLED(MD_SET_INTRATE));
+	mSetPhase.SetCheck(getLED(MD_SET_PHASE));
+	mSetMultN.SetCheck(getLED(MD_SET_MULTN));
+	mSetDivM.SetCheck(getLED(MD_SET_DIVM));
+	mSetVCOFS.SetCheck(getLED(MD_SET_VCOFS));
+
+	DisplayIsClean();
 }
 
 void CSR544simView::OnBnClickedBtnSync()
@@ -208,6 +250,23 @@ void CSR544simView::OnBnClickedBtnSync()
 
 void CSR544simView::OnBnClickedBtnSrc()
 {
-	// TODO: Add your control notification handler code here
 	onButton(BTN_SOURCE);
+}
+
+
+void CSR544simView::OnBnClickedBtnCtrl()
+{
+	onButton(BTN_CONTROL);
+}
+
+
+void CSR544simView::OnBnClickedSelectL()
+{
+	onButton(BTN_SELECT_L);
+}
+
+
+void CSR544simView::OnBnClickedSelectR()
+{
+	onButton(BTN_SELECT_R);
 }
