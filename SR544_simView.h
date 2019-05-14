@@ -78,6 +78,11 @@ public:
 	CButton mSetMultN;
 	CButton mSetDivM;
 	CButton mSetVCOFS;
+	// Units Check Boxes
+	CButton mUnitsHz;
+	CButton mUnitsDeg;
+	CButton mUnitsN;
+	CButton mUnitsRel;
 
 	// Buttons
 	afx_msg void OnBnClickedBtnSync();
@@ -89,6 +94,7 @@ public:
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	void appendOutput(CString &str);
 	void refreshDisplay(void);
+	
 	
 };
 

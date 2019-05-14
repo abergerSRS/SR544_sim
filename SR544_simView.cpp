@@ -78,6 +78,10 @@ void CSR544simView::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SET_MULTN, mSetMultN);
 	DDX_Control(pDX, IDC_SET_DIVM, mSetDivM);
 	DDX_Control(pDX, IDC_SET_VCOFS, mSetVCOFS);
+	DDX_Control(pDX, IDC_UNITS_HZ, mUnitsHz);
+	DDX_Control(pDX, IDC_UNITS_DEG, mUnitsDeg);
+	DDX_Control(pDX, IDC_UNITS_N, mUnitsN);
+	DDX_Control(pDX, IDC_UNITS_RELPHASE, mUnitsRel);
 }
 
 BOOL CSR544simView::PreCreateWindow(CREATESTRUCT& cs)
@@ -223,6 +227,12 @@ void CSR544simView::refreshDisplay(void)
 	mSetMultN.SetCheck(getLED(MD_SET_MULTN));
 	mSetDivM.SetCheck(getLED(MD_SET_DIVM));
 	mSetVCOFS.SetCheck(getLED(MD_SET_VCOFS));
+
+	// refresh Units
+	mUnitsHz.SetCheck(getLED(LED_HZ));
+	mUnitsDeg.SetCheck(getLED(LED_DEG));
+	mUnitsN.SetCheck(getLED(LED_N));
+	mUnitsRel.SetCheck(getLED(LED_REL));
 
 	DisplayIsClean();
 }
