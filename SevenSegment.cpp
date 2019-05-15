@@ -75,8 +75,8 @@ void CSevenSegment::OnPaint()
 
 
 	CPen selectedRedPen(PS_SOLID, 3, RGB(0, 255, 0));
-	CPen onRedPen(PS_SOLID, 3, RGB(200, 0, 0));
-	CPen offRedPen(PS_SOLID, 3, RGB(75, 0, 0));
+	CPen onRedPen(PS_SOLID, 3, RGB(0, 200, 0));
+	CPen offRedPen(PS_SOLID, 3, RGB(0, 75, 0));
 
 	CBrush selectedRedBrush(RGB(0, 255, 0));
 	CBrush onRedBrush(RGB(200, 0, 0));

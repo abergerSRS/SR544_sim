@@ -115,8 +115,12 @@
 #define IDC_UNITS_DEG                   1027
 #define IDC_UNITS_N                     1028
 #define IDC_UNITS_RELPHASE              1029
-#define IDC_EDIT1                       1032
 #define IDC_SEG0                        1033
+#define IDC_SEG1                        1034
+#define IDC_SEG2                        1035
+#define IDC_SEG3                        1036
+#define IDC_SEG4                        1037
+#define IDC_SEG5                        1038
 
 // Next default values for new objects
 // 

@@ -87,6 +87,11 @@ public:
 
 	// 7 segment displays
 	CSevenSegment seg0;
+	CSevenSegment seg1;
+	CSevenSegment seg2;
+	CSevenSegment seg3;
+	CSevenSegment seg4;
+	CSevenSegment seg5;
 
 	// Buttons
 	afx_msg void OnBnClickedBtnSync();

@@ -98,16 +98,27 @@ void CSR544simView::OnInitialUpdate()
 	GetParentFrame()->RecalcLayout();
 	ResizeParentToFit();
 
-	seg0.SubclassDlgItem(IDC_SEG0, this); //what does this do?
+	// SubclassDlgItem connects the CSevenSegment segN to the static display identified by IDC_SEGN
+	seg0.SubclassDlgItem(IDC_SEG0, this); 
+	seg1.SubclassDlgItem(IDC_SEG1, this);
+	seg2.SubclassDlgItem(IDC_SEG2, this);
+	seg3.SubclassDlgItem(IDC_SEG3, this);
+	seg4.SubclassDlgItem(IDC_SEG4, this);
+	seg5.SubclassDlgItem(IDC_SEG5, this);
 
 	SetTimer(1000, 10, NULL);
 
 	initInstrument();
 	initFrontPanel();
-	updateDisplay(); // updates instrument model
-	refreshDisplay(); // simulates the hardware refresh (actually pushes changes to FP)
+	updateDisplay();	// updates instrument model
+	refreshDisplay();	// simulates the hardware refresh (actually pushes changes to FP)
 
-	seg0.setValue(0xE0);
+	seg0.setValue(0x00);
+	seg1.setValue(0x00);
+	seg2.setValue(0x00);
+	seg3.setValue(0x00);
+	seg4.setValue(0x00);
+	seg5.setValue(0x00);
 }
 
 
