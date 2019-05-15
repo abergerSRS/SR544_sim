@@ -98,12 +98,16 @@ void CSR544simView::OnInitialUpdate()
 	GetParentFrame()->RecalcLayout();
 	ResizeParentToFit();
 
+	seg0.SubclassDlgItem(IDC_SEG0, this); //what does this do?
+
 	SetTimer(1000, 10, NULL);
 
 	initInstrument();
 	initFrontPanel();
-	updateDisplay();
-	refreshDisplay();
+	updateDisplay(); // updates instrument model
+	refreshDisplay(); // simulates the hardware refresh (actually pushes changes to FP)
+
+	seg0.setValue(0xE0);
 }
 
 

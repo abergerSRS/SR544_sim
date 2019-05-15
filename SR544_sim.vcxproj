@@ -195,6 +195,7 @@
     <ClInclude Include="OutputWnd.h" />
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SevenSegment.h" />
     <ClInclude Include="SR544_sim.h" />
     <ClInclude Include="SR544_simDoc.h" />
     <ClInclude Include="SR544_simView.h" />
@@ -208,6 +209,7 @@
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="OutputWnd.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />
+    <ClCompile Include="SevenSegment.cpp" />
     <ClCompile Include="SR544_sim.cpp" />
     <ClCompile Include="SR544_simDoc.cpp" />
     <ClCompile Include="SR544_simView.cpp" />

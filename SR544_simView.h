@@ -1,6 +1,7 @@
 
 // SR544_simView.h : interface of the CSR544simView class
 //
+#include "SevenSegment.h"
 
 #pragma once
 
@@ -83,6 +84,9 @@ public:
 	CButton mUnitsDeg;
 	CButton mUnitsN;
 	CButton mUnitsRel;
+
+	// 7 segment displays
+	CSevenSegment seg0;
 
 	// Buttons
 	afx_msg void OnBnClickedBtnSync();
