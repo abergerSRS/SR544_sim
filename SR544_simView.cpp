@@ -47,7 +47,10 @@ CSR544simView::CSR544simView() noexcept
 	: CFormView(IDD_SR544_SIM_FORM)
 {
 	// TODO: add construction code here
-
+	onPlus_bmp = LoadBitmap(::AfxGetResourceHandle(), MAKEINTRESOURCE(IDB_LED_PLUSON));
+	offPlus_bmp = LoadBitmap(::AfxGetResourceHandle(), MAKEINTRESOURCE(IDB_LED_PLUSOFF));
+	onMinus_bmp = LoadBitmap(::AfxGetResourceHandle(), MAKEINTRESOURCE(IDB_LED_MINUSON));
+	offMinus_bmp = LoadBitmap(::AfxGetResourceHandle(), MAKEINTRESOURCE(IDB_LED_MINUSOFF));
 }
 
 CSR544simView::~CSR544simView()
@@ -82,6 +85,8 @@ void CSR544simView::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_UNITS_DEG, mUnitsDeg);
 	DDX_Control(pDX, IDC_UNITS_N, mUnitsN);
 	DDX_Control(pDX, IDC_UNITS_RELPHASE, mUnitsRel);
+	DDX_Control(pDX, IDC_LED_PLUS, mLedPlus);
+	DDX_Control(pDX, IDC_LED_MINUS, mLedMinus);
 }
 
 BOOL CSR544simView::PreCreateWindow(CREATESTRUCT& cs)
@@ -105,6 +110,13 @@ void CSR544simView::OnInitialUpdate()
 	seg[3].SubclassDlgItem(IDC_SEG3, this);
 	seg[4].SubclassDlgItem(IDC_SEG4, this);
 	seg[5].SubclassDlgItem(IDC_SEG5, this);
+
+	//HBITMAP onPlus = (HBITMAP)LoadImage(NULL, MAKEINTRESOURCE(IDB_LED_PLUS), IMAGE_BITMAP, 13, 13, LR_DEFAULTCOLOR);
+	
+	mLedPlus.SetBitmap(offPlus_bmp);
+	mLedMinus.SetBitmap(offMinus_bmp);
+	// working version
+	// mLEDPlus.SetBitmap(::LoadBitmap(::AfxGetResourceHandle(),MAKEINTRESOURCE(IDB_LED_PLUS)));
 
 	SetTimer(1000, 10, NULL);
 
@@ -237,6 +249,9 @@ void CSR544simView::refreshDisplay(void)
 	mSetDivM.SetCheck(getLED(MD_SET_DIVM));
 	mSetVCOFS.SetCheck(getLED(MD_SET_VCOFS));
 
+	// refresh plus/minus
+	refreshPlusMinus();
+
 	// refresh Units
 	mUnitsHz.SetCheck(getLED(LED_HZ));
 	mUnitsDeg.SetCheck(getLED(LED_DEG));
@@ -255,6 +270,19 @@ void CSR544simView::refresh7seg(void) {
 	}
 }
 
+void CSR544simView::refreshPlusMinus(void) {
+	if (getLED(LED_PLUS)) {
+		mLedPlus.SetBitmap(onPlus_bmp);		
+	} else {
+		mLedPlus.SetBitmap(offPlus_bmp);
+	}
+
+	if (getLED(LED_MINUS)) {
+		mLedMinus.SetBitmap(onMinus_bmp);
+	} else {
+		mLedMinus.SetBitmap(offMinus_bmp);
+	}
+}
 
 void CSR544simView::OnBnClickedBtnSync()
 {

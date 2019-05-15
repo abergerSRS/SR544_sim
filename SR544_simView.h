@@ -87,6 +87,14 @@ public:
 
 	// 7 segment displays
 	CSevenSegment seg[6];
+
+	// Plus/Minus LEDs
+	CStatic mLedPlus;
+	CStatic mLedMinus;
+	HBITMAP onPlus_bmp; 
+	HBITMAP offPlus_bmp;
+	HBITMAP onMinus_bmp;
+	HBITMAP offMinus_bmp;
 	
 	// Buttons
 	afx_msg void OnBnClickedBtnSync();
@@ -99,8 +107,7 @@ public:
 	void appendOutput(CString &str);
 	void refreshDisplay(void);
 	void refresh7seg(void);
-	
-	
+	void refreshPlusMinus(void);
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp

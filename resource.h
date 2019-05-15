@@ -85,6 +85,10 @@
 #define IDS_FIND_TAB                    302
 #define IDS_EXPLORER                    305
 #define IDS_EDIT_MENU                   306
+#define IDB_LED_PLUSON                  311
+#define IDB_LED_PLUSOFF                 313
+#define IDB_LED_MINUSOFF                314
+#define IDB_LED_MINUSON                 315
 #define IDC_BTN_SYNC                    1000
 #define IDC_RISING_EDGE                 1001
 #define IDC_FALLING_EDGE                1002
@@ -121,14 +125,17 @@
 #define IDC_SEG3                        1036
 #define IDC_SEG4                        1037
 #define IDC_SEG5                        1038
+#define IDC_LED_PLUS                    1039
+#define IDC_LED_PLUS2                   1040
+#define IDC_LED_MINUS                   1040
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        311
+#define _APS_NEXT_RESOURCE_VALUE        318
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1034
+#define _APS_NEXT_CONTROL_VALUE         1041
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif
