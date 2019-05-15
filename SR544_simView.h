@@ -86,13 +86,8 @@ public:
 	CButton mUnitsRel;
 
 	// 7 segment displays
-	CSevenSegment seg0;
-	CSevenSegment seg1;
-	CSevenSegment seg2;
-	CSevenSegment seg3;
-	CSevenSegment seg4;
-	CSevenSegment seg5;
-
+	CSevenSegment seg[6];
+	
 	// Buttons
 	afx_msg void OnBnClickedBtnSync();
 	afx_msg void OnBnClickedBtnSrc();	
@@ -103,6 +98,7 @@ public:
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	void appendOutput(CString &str);
 	void refreshDisplay(void);
+	void refresh7seg(void);
 	
 	
 };
