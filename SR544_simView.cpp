@@ -249,6 +249,14 @@ void CSR544simView::refreshDisplay(void)
 	mUnitsN.SetCheck(getLED(LED_N));
 	mUnitsRel.SetCheck(getLED(LED_REL));
 
+	// refresh 7-seg displays
+	seg0.setValue(getSegDigit(0));
+	seg1.setValue(getSegDigit(1));
+	seg2.setValue(getSegDigit(2));
+	seg3.setValue(getSegDigit(3));
+	seg4.setValue(getSegDigit(4));
+	seg5.setValue(getSegDigit(5));
+	
 	DisplayIsClean();
 }
 
