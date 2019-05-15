@@ -74,86 +74,86 @@ void CSevenSegment::OnPaint()
 	int segLeft = 6;
 
 
-	CPen selectedRedPen(PS_SOLID, 3, RGB(0, 255, 0));
-	CPen onRedPen(PS_SOLID, 3, RGB(0, 225, 0));
-	CPen offRedPen(PS_SOLID, 3, RGB(0, 50, 0));
+	CPen selectedGreenPen(PS_SOLID, 3, RGB(0, 255, 0));
+	CPen onGreenPen(PS_SOLID, 3, RGB(0, 225, 0));
+	CPen offGreenPen(PS_SOLID, 3, RGB(0, 50, 0));
 
-	CBrush selectedRedBrush(RGB(0, 255, 0));
-	CBrush onRedBrush(RGB(200, 0, 0));
-	CBrush offRedBrush(RGB(100, 0, 0));
+	CBrush selectedGreenBrush(RGB(0, 255, 0));
+	CBrush onGreenBrush(RGB(0, 200, 0));
+	CBrush offGreenBrush(RGB(0, 100, 0));
 
-	CPen *oldPen = dc.SelectObject(&offRedPen);
+	CPen *oldPen = dc.SelectObject(&offGreenPen);
 
 	//if (type == SEVENSEG) {
 		if (val & 0x01) {
 			if (selected)
-				dc.SelectObject(&selectedRedPen);
+				dc.SelectObject(&selectedGreenPen);
 			else
-				dc.SelectObject(&onRedPen);
+				dc.SelectObject(&onGreenPen);
 		}
 		else
-			dc.SelectObject(&offRedPen);
+			dc.SelectObject(&offGreenPen);
 		dc.MoveTo(segLeft, segTop);
 		dc.LineTo(segLeft + segWidth, segTop);
 
 		if (val & 0x02) {
 			if (selected)
-				dc.SelectObject(&selectedRedPen);
+				dc.SelectObject(&selectedGreenPen);
 			else
-				dc.SelectObject(&onRedPen);
+				dc.SelectObject(&onGreenPen);
 		}
 		else
-			dc.SelectObject(&offRedPen);
+			dc.SelectObject(&offGreenPen);
 		dc.LineTo(segLeft + segWidth - 1, segTop + segHeight / 2);
 
 		if (val & 0x04) {
 			if (selected)
-				dc.SelectObject(&selectedRedPen);
+				dc.SelectObject(&selectedGreenPen);
 			else
-				dc.SelectObject(&onRedPen);
+				dc.SelectObject(&onGreenPen);
 		}
 		else
-			dc.SelectObject(&offRedPen);
+			dc.SelectObject(&offGreenPen);
 		dc.LineTo(segLeft + segWidth - 2, segTop + segHeight);
 
 		if (val & 0x08) {
 			if (selected)
-				dc.SelectObject(&selectedRedPen);
+				dc.SelectObject(&selectedGreenPen);
 			else
-				dc.SelectObject(&onRedPen);
+				dc.SelectObject(&onGreenPen);
 		}
 		else
-			dc.SelectObject(&offRedPen);
+			dc.SelectObject(&offGreenPen);
 		dc.LineTo(segLeft - 2, segTop + segHeight);
 
 		if (val & 0x10) {
 			if (selected)
-				dc.SelectObject(&selectedRedPen);
+				dc.SelectObject(&selectedGreenPen);
 			else
-				dc.SelectObject(&onRedPen);
+				dc.SelectObject(&onGreenPen);
 		}
 		else
-			dc.SelectObject(&offRedPen);
+			dc.SelectObject(&offGreenPen);
 		dc.LineTo(segLeft - 1, segTop + segHeight / 2);
 
 		if (val & 0x20) {
 			if (selected)
-				dc.SelectObject(&selectedRedPen);
+				dc.SelectObject(&selectedGreenPen);
 			else
-				dc.SelectObject(&onRedPen);
+				dc.SelectObject(&onGreenPen);
 		}
 		else
-			dc.SelectObject(&offRedPen);
+			dc.SelectObject(&offGreenPen);
 		dc.LineTo(segLeft, segTop);
 
 		if (val & 0x40) {
 			if (selected)
-				dc.SelectObject(&selectedRedPen);
+				dc.SelectObject(&selectedGreenPen);
 			else
-				dc.SelectObject(&onRedPen);
+				dc.SelectObject(&onGreenPen);
 		}
 		else
-			dc.SelectObject(&offRedPen);
+			dc.SelectObject(&offGreenPen);
 		dc.MoveTo(segLeft - 1, segTop + segHeight / 2);
 		dc.LineTo(segLeft + segWidth - 1, segTop + segHeight / 2);
 	//}
@@ -161,33 +161,33 @@ void CSevenSegment::OnPaint()
 	else { // PLUSMINUS_1
 		if (val & 0x02) {
 			if (selected)
-				dc.SelectObject(&selectedRedPen);
+				dc.SelectObject(&selectedGreenPen);
 			else
-				dc.SelectObject(&onRedPen);
+				dc.SelectObject(&onGreenPen);
 		}
 		else
-			dc.SelectObject(&offRedPen);
+			dc.SelectObject(&offGreenPen);
 		dc.MoveTo(segLeft + segWidth, segTop);
 		dc.LineTo(segLeft + segWidth - 1, segTop + segHeight / 2);
 
 		if (val & 0x04) {
 			if (selected)
-				dc.SelectObject(&selectedRedPen);
+				dc.SelectObject(&selectedGreenPen);
 			else
-				dc.SelectObject(&onRedPen);
+				dc.SelectObject(&onGreenPen);
 		}
 		else
-			dc.SelectObject(&offRedPen);
+			dc.SelectObject(&offGreenPen);
 		dc.LineTo(segLeft + segWidth - 2, segTop + segHeight);
 
 		if (val & 0x20) {
 			if (selected)
-				dc.SelectObject(&selectedRedPen);
+				dc.SelectObject(&selectedGreenPen);
 			else
-				dc.SelectObject(&onRedPen);
+				dc.SelectObject(&onGreenPen);
 		}
 		else
-			dc.SelectObject(&offRedPen);
+			dc.SelectObject(&offGreenPen);
 		dc.MoveTo(segLeft + segWidth / 2 - 2, segTop + 1);
 		dc.LineTo(segLeft + segWidth / 2 - 3, segTop + segHeight / 2 - 3);
 		dc.MoveTo(segLeft + 1, segTop + segHeight / 4 - 1);
@@ -195,31 +195,31 @@ void CSevenSegment::OnPaint()
 
 		if (val & 0x40) {
 			if (selected)
-				dc.SelectObject(&selectedRedPen);
+				dc.SelectObject(&selectedGreenPen);
 			else
-				dc.SelectObject(&onRedPen);
+				dc.SelectObject(&onGreenPen);
 		}
 		else
-			dc.SelectObject(&offRedPen);
+			dc.SelectObject(&offGreenPen);
 		dc.MoveTo(segLeft + 1, segTop + segHeight / 2);
 		dc.LineTo(segLeft + segWidth - 6, segTop + segHeight / 2);
 	}
 	*/
 
-	CBrush *oldBrush = dc.SelectObject(&offRedBrush);
+	CBrush *oldBrush = dc.SelectObject(&offGreenBrush);
 	if (val & 0x80) {
 		if (selected) {
-			dc.SelectObject(&selectedRedBrush);
-			dc.SelectObject(&selectedRedPen);
+			dc.SelectObject(&selectedGreenBrush);
+			dc.SelectObject(&selectedGreenPen);
 		}
 		else {
-			dc.SelectObject(&onRedBrush);
-			dc.SelectObject(&onRedPen);
+			dc.SelectObject(&onGreenBrush);
+			dc.SelectObject(&onGreenPen);
 		}
 	}
 	else {
-		dc.SelectObject(&offRedBrush);
-		dc.SelectObject(&offRedPen);
+		dc.SelectObject(&offGreenBrush);
+		dc.SelectObject(&offGreenPen);
 	}
 	dc.Ellipse(CRect(segLeft + segWidth + 2, segTop + segHeight + 2,
 		segLeft + segWidth + 5, segTop + segHeight + 5));
