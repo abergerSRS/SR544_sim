@@ -119,6 +119,9 @@
 #define IDC_UNITS_DEG                   1027
 #define IDC_UNITS_N                     1028
 #define IDC_UNITS_RELPHASE              1029
+#define IDC_BTN_7                       1030
+#define IDC_BTN_8                       1031
+#define IDC_BTN_9                       1032
 #define IDC_SEG0                        1033
 #define IDC_SEG1                        1034
 #define IDC_SEG2                        1035
@@ -126,8 +129,19 @@
 #define IDC_SEG4                        1037
 #define IDC_SEG5                        1038
 #define IDC_LED_PLUS                    1039
-#define IDC_LED_PLUS2                   1040
 #define IDC_LED_MINUS                   1040
+#define IDC_BTN_4                       1041
+#define IDC_BTN_5                       1042
+#define IDC_BTN_6                       1043
+#define IDC_BTN_1                       1044
+#define IDC_BTN_2                       1045
+#define IDC_BTN_3                       1046
+#define IDC_BTN_0                       1047
+#define IDC_BTN_DP                      1048
+#define IDC_BTN_PM                      1049
+#define IDC_BTN_ENTER                   1050
+#define IDC_BTN_BKSPC                   1051
+#define IDC_BTN_CANCEL                  1052
 
 // Next default values for new objects
 // 

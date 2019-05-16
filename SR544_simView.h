@@ -102,12 +102,29 @@ public:
 	afx_msg void OnBnClickedBtnCtrl();	
 	afx_msg void OnBnClickedSelectL();
 	afx_msg void OnBnClickedSelectR();
+	// Numeric Entry
+	afx_msg void OnBnClickedBtn0();
+	afx_msg void OnBnClickedBtn1();
+	afx_msg void OnBnClickedBtn2();
+	afx_msg void OnBnClickedBtn3();
+	afx_msg void OnBnClickedBtn4();
+	afx_msg void OnBnClickedBtn5();
+	afx_msg void OnBnClickedBtn6();
+	afx_msg void OnBnClickedBtn7();
+	afx_msg void OnBnClickedBtn8();
+	afx_msg void OnBnClickedBtn9();
 
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	void appendOutput(CString &str);
 	void refreshDisplay(void);
 	void refresh7seg(void);
 	void refreshPlusMinus(void);
+	
+	afx_msg void OnBnClickedBtnDp();
+	afx_msg void OnBnClickedBtnPm();
+	afx_msg void OnBnClickedBtnEnter();
+	afx_msg void OnBnClickedBtnBkspc();
+	afx_msg void OnBnClickedBtnCancel();
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp

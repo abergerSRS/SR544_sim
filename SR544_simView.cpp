@@ -39,6 +39,21 @@ BEGIN_MESSAGE_MAP(CSR544simView, CFormView)
 	ON_BN_CLICKED(IDC_BTN_CTRL, &CSR544simView::OnBnClickedBtnCtrl)
 	ON_BN_CLICKED(IDC_SELECT_L, &CSR544simView::OnBnClickedSelectL)
 	ON_BN_CLICKED(IDC_SELECT_R, &CSR544simView::OnBnClickedSelectR)
+	ON_BN_CLICKED(IDC_BTN_0, &CSR544simView::OnBnClickedBtn0)
+	ON_BN_CLICKED(IDC_BTN_1, &CSR544simView::OnBnClickedBtn1)
+	ON_BN_CLICKED(IDC_BTN_2, &CSR544simView::OnBnClickedBtn2)
+	ON_BN_CLICKED(IDC_BTN_3, &CSR544simView::OnBnClickedBtn3)
+	ON_BN_CLICKED(IDC_BTN_4, &CSR544simView::OnBnClickedBtn4)
+	ON_BN_CLICKED(IDC_BTN_5, &CSR544simView::OnBnClickedBtn5)
+	ON_BN_CLICKED(IDC_BTN_6, &CSR544simView::OnBnClickedBtn6)
+	ON_BN_CLICKED(IDC_BTN_7, &CSR544simView::OnBnClickedBtn7)
+	ON_BN_CLICKED(IDC_BTN_8, &CSR544simView::OnBnClickedBtn8)
+	ON_BN_CLICKED(IDC_BTN_9, &CSR544simView::OnBnClickedBtn9)
+	ON_BN_CLICKED(IDC_BTN_DP, &CSR544simView::OnBnClickedBtnDp)
+	ON_BN_CLICKED(IDC_BTN_PM, &CSR544simView::OnBnClickedBtnPm)
+	ON_BN_CLICKED(IDC_BTN_ENTER, &CSR544simView::OnBnClickedBtnEnter)
+	ON_BN_CLICKED(IDC_BTN_BKSPC, &CSR544simView::OnBnClickedBtnBkspc)
+	ON_BN_CLICKED(IDC_BTN_CANCEL, &CSR544simView::OnBnClickedBtnCancel)
 END_MESSAGE_MAP()
 
 // CSR544simView construction/destruction
@@ -326,4 +341,94 @@ void CSR544simView::OnBnClickedSelectL()
 void CSR544simView::OnBnClickedSelectR()
 {
 	onButton(BTN_SELECT_R);
+}
+
+
+void CSR544simView::OnBnClickedBtn0()
+{
+	onButton(BTN_0);
+}
+
+
+void CSR544simView::OnBnClickedBtn1()
+{
+	onButton(BTN_1);
+}
+
+
+void CSR544simView::OnBnClickedBtn2()
+{
+	onButton(BTN_2);
+}
+
+
+void CSR544simView::OnBnClickedBtn3()
+{
+	onButton(BTN_3);
+}
+
+
+void CSR544simView::OnBnClickedBtn4()
+{
+	onButton(BTN_4);
+}
+
+
+void CSR544simView::OnBnClickedBtn5()
+{
+	onButton(BTN_5);
+}
+
+
+void CSR544simView::OnBnClickedBtn6()
+{
+	onButton(BTN_6);
+}
+
+
+void CSR544simView::OnBnClickedBtn7()
+{
+	onButton(BTN_7);
+}
+
+
+void CSR544simView::OnBnClickedBtn8()
+{
+	onButton(BTN_8);
+}
+
+
+void CSR544simView::OnBnClickedBtn9()
+{
+	onButton(BTN_9);
+}
+
+
+void CSR544simView::OnBnClickedBtnDp()
+{
+	onButton(BTN_POINT);
+}
+
+
+void CSR544simView::OnBnClickedBtnPm()
+{
+	onButton(BTN_PLUS_MINUS);
+}
+
+
+void CSR544simView::OnBnClickedBtnEnter()
+{
+	onButton(BTN_ENTER);
+}
+
+
+void CSR544simView::OnBnClickedBtnBkspc()
+{
+	onButton(BTN_BS);
+}
+
+
+void CSR544simView::OnBnClickedBtnCancel()
+{
+	onButton(BTN_CANCEL);
 }
