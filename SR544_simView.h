@@ -130,6 +130,7 @@ public:
 	afx_msg void OnBnClickedBtnRunstop();
 	CButton mLedRun;
 	CButton mLedStop;
+	CButton mLedNumEntry;
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp

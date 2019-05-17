@@ -143,10 +143,11 @@
 #define IDC_BTN_BKSPC                   1051
 #define IDC_BTN_CANCEL                  1052
 #define IDC_BTN_REL                     1053
-#define IDC_BTN_REL2                    1054
 #define IDC_BTN_RUNSTOP                 1054
 #define IDC_RUN                         1055
 #define IDC_STOP                        1056
+#define IDC_CHECK2                      1057
+#define IDC_LED_NUMENTRY                1057
 
 // Next default values for new objects
 // 
@@ -154,7 +155,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        318
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1056
+#define _APS_NEXT_CONTROL_VALUE         1058
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif
