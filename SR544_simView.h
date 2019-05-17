@@ -125,6 +125,11 @@ public:
 	afx_msg void OnBnClickedBtnEnter();
 	afx_msg void OnBnClickedBtnBkspc();
 	afx_msg void OnBnClickedBtnCancel();
+	afx_msg void OnBnClickedSelectR2();
+	afx_msg void OnBnClickedBtnRel();
+	afx_msg void OnBnClickedBtnRunstop();
+	CButton mLedRun;
+	CButton mLedStop;
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp

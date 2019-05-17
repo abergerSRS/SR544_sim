@@ -14,6 +14,7 @@
 #include "SR544_simView.h"
 #include "instrument.h"
 #include "motorDrive.h"
+#include "motor.h"
 #include "frontpanel.h"
 #include "display.h"
 
@@ -54,6 +55,8 @@ BEGIN_MESSAGE_MAP(CSR544simView, CFormView)
 	ON_BN_CLICKED(IDC_BTN_ENTER, &CSR544simView::OnBnClickedBtnEnter)
 	ON_BN_CLICKED(IDC_BTN_BKSPC, &CSR544simView::OnBnClickedBtnBkspc)
 	ON_BN_CLICKED(IDC_BTN_CANCEL, &CSR544simView::OnBnClickedBtnCancel)
+	ON_BN_CLICKED(IDC_BTN_REL, &CSR544simView::OnBnClickedBtnRel)
+	ON_BN_CLICKED(IDC_BTN_RUNSTOP, &CSR544simView::OnBnClickedBtnRunstop)
 END_MESSAGE_MAP()
 
 // CSR544simView construction/destruction
@@ -102,6 +105,8 @@ void CSR544simView::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_UNITS_RELPHASE, mUnitsRel);
 	DDX_Control(pDX, IDC_LED_PLUS, mLedPlus);
 	DDX_Control(pDX, IDC_LED_MINUS, mLedMinus);
+	DDX_Control(pDX, IDC_RUN, mLedRun);
+	DDX_Control(pDX, IDC_STOP, mLedStop);
 }
 
 BOOL CSR544simView::PreCreateWindow(CREATESTRUCT& cs)
@@ -136,6 +141,7 @@ void CSR544simView::OnInitialUpdate()
 	SetTimer(1000, 10, NULL);
 
 	initInstrument();
+	initMotor();
 	initFrontPanel();
 	updateDisplay();	// updates instrument model
 	refreshDisplay();	// simulates the hardware refresh (actually pushes changes to FP)
@@ -272,6 +278,10 @@ void CSR544simView::refreshDisplay(void)
 	mUnitsDeg.SetCheck(getLED(LED_DEG));
 	mUnitsN.SetCheck(getLED(LED_N));
 	mUnitsRel.SetCheck(getLED(LED_REL));
+
+	// refresh motor LEDs
+	mLedRun.SetCheck(getLED(LED_RUN));
+	mLedStop.SetCheck(getLED(LED_STOP));
 
 	// refresh 7-seg displays
 	refresh7seg();
@@ -431,4 +441,15 @@ void CSR544simView::OnBnClickedBtnBkspc()
 void CSR544simView::OnBnClickedBtnCancel()
 {
 	onButton(BTN_CANCEL);
+}
+
+void CSR544simView::OnBnClickedBtnRel()
+{
+	onButton(BTN_RELPHASE);
+}
+
+
+void CSR544simView::OnBnClickedBtnRunstop()
+{
+	onButton(BTN_RUNSTOP);
 }
