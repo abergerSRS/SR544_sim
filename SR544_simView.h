@@ -131,6 +131,8 @@ public:
 	CButton mLedRun;
 	CButton mLedStop;
 	CButton mLedNumEntry;
+	CButton mChopLck;
+	CButton mChopUnlck;
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp

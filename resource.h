@@ -146,8 +146,10 @@
 #define IDC_BTN_RUNSTOP                 1054
 #define IDC_RUN                         1055
 #define IDC_STOP                        1056
-#define IDC_CHECK2                      1057
 #define IDC_LED_NUMENTRY                1057
+#define IDC_CHOP_LCK                    1058
+#define IDC_CHECK4                      1059
+#define IDC_CHOP_UNLCK                  1059
 
 // Next default values for new objects
 // 
@@ -155,7 +157,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        318
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1058
+#define _APS_NEXT_CONTROL_VALUE         1060
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif

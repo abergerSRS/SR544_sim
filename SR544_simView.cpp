@@ -108,6 +108,8 @@ void CSR544simView::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_RUN, mLedRun);
 	DDX_Control(pDX, IDC_STOP, mLedStop);
 	DDX_Control(pDX, IDC_LED_NUMENTRY, mLedNumEntry);
+	DDX_Control(pDX, IDC_CHOP_LCK, mChopLck);
+	DDX_Control(pDX, IDC_CHOP_UNLCK, mChopUnlck);
 }
 
 BOOL CSR544simView::PreCreateWindow(CREATESTRUCT& cs)
@@ -283,6 +285,8 @@ void CSR544simView::refreshDisplay(void)
 	// refresh motor LEDs
 	mLedRun.SetCheck(getLED(LED_RUN));
 	mLedStop.SetCheck(getLED(LED_STOP));
+	mChopLck.SetCheck(getLED(LED_CHOP_LCK));
+	mChopUnlck.SetCheck(getLED(LED_CHOP_ULCK));
 
 	// refresh Numeric Entry LED
 	mLedNumEntry.SetCheck(getLED(LED_NUMENTRY));
