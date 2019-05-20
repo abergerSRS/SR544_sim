@@ -57,6 +57,8 @@ BEGIN_MESSAGE_MAP(CSR544simView, CFormView)
 	ON_BN_CLICKED(IDC_BTN_CANCEL, &CSR544simView::OnBnClickedBtnCancel)
 	ON_BN_CLICKED(IDC_BTN_REL, &CSR544simView::OnBnClickedBtnRel)
 	ON_BN_CLICKED(IDC_BTN_RUNSTOP, &CSR544simView::OnBnClickedBtnRunstop)
+	ON_BN_CLICKED(IDC_BTN_STORE, &CSR544simView::OnBnClickedBtnStore)
+	ON_BN_CLICKED(IDC_BTN_RECALL, &CSR544simView::OnBnClickedBtnRecall)
 END_MESSAGE_MAP()
 
 // CSR544simView construction/destruction
@@ -460,4 +462,16 @@ void CSR544simView::OnBnClickedBtnRel()
 void CSR544simView::OnBnClickedBtnRunstop()
 {
 	onButton(BTN_RUNSTOP);
+}
+
+
+void CSR544simView::OnBnClickedBtnStore()
+{
+	onButton(BTN_STORE);
+}
+
+
+void CSR544simView::OnBnClickedBtnRecall()
+{
+	onButton(BTN_RECALL);
 }

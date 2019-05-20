@@ -85,6 +85,8 @@ public:
 	CButton mUnitsN;
 	CButton mUnitsRel;
 
+	CButton mLedNumEntry;
+
 	// 7 segment displays
 	CSevenSegment seg[6];
 
@@ -95,6 +97,12 @@ public:
 	HBITMAP offPlus_bmp;
 	HBITMAP onMinus_bmp;
 	HBITMAP offMinus_bmp;
+
+	// Motor LEDs
+	CButton mLedRun;
+	CButton mLedStop;
+	CButton mChopLck;
+	CButton mChopUnlck;
 	
 	// Buttons
 	afx_msg void OnBnClickedBtnSync();
@@ -102,6 +110,8 @@ public:
 	afx_msg void OnBnClickedBtnCtrl();	
 	afx_msg void OnBnClickedSelectL();
 	afx_msg void OnBnClickedSelectR();
+	afx_msg void OnBnClickedBtnRel();
+	afx_msg void OnBnClickedBtnRunstop();
 	// Numeric Entry
 	afx_msg void OnBnClickedBtn0();
 	afx_msg void OnBnClickedBtn1();
@@ -113,26 +123,20 @@ public:
 	afx_msg void OnBnClickedBtn7();
 	afx_msg void OnBnClickedBtn8();
 	afx_msg void OnBnClickedBtn9();
+	afx_msg void OnBnClickedBtnDp();
+	afx_msg void OnBnClickedBtnPm();
+	afx_msg void OnBnClickedBtnEnter();
+	afx_msg void OnBnClickedBtnBkspc();
+	afx_msg void OnBnClickedBtnCancel();	
 
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	void appendOutput(CString &str);
 	void refreshDisplay(void);
 	void refresh7seg(void);
 	void refreshPlusMinus(void);
-	
-	afx_msg void OnBnClickedBtnDp();
-	afx_msg void OnBnClickedBtnPm();
-	afx_msg void OnBnClickedBtnEnter();
-	afx_msg void OnBnClickedBtnBkspc();
-	afx_msg void OnBnClickedBtnCancel();
-	afx_msg void OnBnClickedSelectR2();
-	afx_msg void OnBnClickedBtnRel();
-	afx_msg void OnBnClickedBtnRunstop();
-	CButton mLedRun;
-	CButton mLedStop;
-	CButton mLedNumEntry;
-	CButton mChopLck;
-	CButton mChopUnlck;
+
+	afx_msg void OnBnClickedBtnStore();
+	afx_msg void OnBnClickedBtnRecall();
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp

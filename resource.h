@@ -150,6 +150,8 @@
 #define IDC_CHOP_LCK                    1058
 #define IDC_CHECK4                      1059
 #define IDC_CHOP_UNLCK                  1059
+#define IDC_BTN_STORE                   1060
+#define IDC_BTN_RECALL                  1061
 
 // Next default values for new objects
 // 
