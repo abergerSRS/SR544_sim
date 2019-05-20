@@ -226,7 +226,7 @@ void CSR544simView::OnTimer(UINT_PTR nIDEvent)
 {
 	// TODO: Add your message handler code here and/or call default
 	if (nIDEvent == 1000) {
-		// updateDisplay()
+		updateTimers();
 		if (isDisplayDirty()) {
 			refreshDisplay();
 		}		
@@ -244,6 +244,11 @@ void CSR544simView::appendOutput(CString &str)
 
 void CSR544simView::refreshDisplay(void)
 {	
+	/*----------------------------------------------------
+	This function will be replaced by SPI communication 
+	to front panel hardware
+	----------------------------------------------------*/
+
 	// refresh Sync Edge LEDs
 	mRisingEdge.SetCheck(getLED(LED_SYNC_RISE));
 	mFallingEdge.SetCheck(getLED(LED_SYNC_FALL));
