@@ -18,6 +18,7 @@
 #include "frontpanel.h"
 #include "display.h"
 #include "flash_kinetis.h"
+#include "hardware.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -231,7 +232,8 @@ void CSR544simView::OnTimer(UINT_PTR nIDEvent)
 		updateTimers();
 		if (isDisplayDirty()) {
 			refreshDisplay();
-		}		
+		}
+		updateHardware();
 	}
 
 	CFormView::OnTimer(nIDEvent);
