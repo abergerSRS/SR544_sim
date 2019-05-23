@@ -2,6 +2,7 @@
 // SR544_simView.h : interface of the CSR544simView class
 //
 #include "SevenSegment.h"
+#include "instrument.h"
 
 #pragma once
 
@@ -128,6 +129,9 @@ public:
 	afx_msg void OnBnClickedBtnEnter();
 	afx_msg void OnBnClickedBtnBkspc();
 	afx_msg void OnBnClickedBtnCancel();	
+	// Save/Recall Configuration
+	afx_msg void OnBnClickedBtnStore();
+	afx_msg void OnBnClickedBtnRecall();
 
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	void appendOutput(CString &str);
@@ -135,8 +139,7 @@ public:
 	void refresh7seg(void);
 	void refreshPlusMinus(void);
 
-	afx_msg void OnBnClickedBtnStore();
-	afx_msg void OnBnClickedBtnRecall();
+	
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp

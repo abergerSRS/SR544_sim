@@ -17,11 +17,11 @@
 #include "motor.h"
 #include "frontpanel.h"
 #include "display.h"
+#include "flash_kinetis.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
-
 
 // CSR544simView
 
@@ -136,19 +136,21 @@ void CSR544simView::OnInitialUpdate()
 	seg[4].SubclassDlgItem(IDC_SEG4, this);
 	seg[5].SubclassDlgItem(IDC_SEG5, this);
 
-	//HBITMAP onPlus = (HBITMAP)LoadImage(NULL, MAKEINTRESOURCE(IDB_LED_PLUS), IMAGE_BITMAP, 13, 13, LR_DEFAULTCOLOR);
-	
 	mLedPlus.SetBitmap(offPlus_bmp);
 	mLedMinus.SetBitmap(offMinus_bmp);
-	// working version
-	// mLEDPlus.SetBitmap(::LoadBitmap(::AfxGetResourceHandle(),MAKEINTRESOURCE(IDB_LED_PLUS)));
-
+			
 	SetTimer(1000, 10, NULL);
 
 	initInstrument();
 	initMotor();
 	initFrontPanel();
-	updateDisplay();	// updates instrument model
+
+	// initialize all 9 memory locations to the default startup state
+	for (int i = 1; i <= 9; i++) {
+		saveCurrentConfig(i);
+	}
+	
+	updateDisplay();	// updates instrument model display variables
 	refreshDisplay();	// simulates the hardware refresh (actually pushes changes to FP)
 
 }
