@@ -2,6 +2,7 @@
 // SR544_simView.cpp : implementation of the CSR544simView class
 //
 
+#include "config.h"
 #include "stdafx.h"
 // SHARED_HANDLERS can be defined in an ATL project implementing preview, thumbnail
 // and search filter handlers and allows sharing of document code with that project.
@@ -142,18 +143,18 @@ void CSR544simView::OnInitialUpdate()
 			
 	SetTimer(1000, 10, NULL);
 
-	initInstrument();
-	initMotor();
-	initFrontPanel();
+	InitializeInstrument();
+	InitializeFrontPanel();
 
 	// initialize all 9 memory locations to the default startup state
+	/*
 	for (int i = 1; i <= 9; i++) {
 		saveCurrentConfig(i);
 	}
+	*/
 	
-	updateDisplay();	// updates instrument model display variables
+	UpdateDisplay();	// updates instrument model display variables
 	refreshDisplay();	// simulates the hardware refresh (actually pushes changes to FP)
-
 }
 
 
@@ -229,11 +230,11 @@ void CSR544simView::OnTimer(UINT_PTR nIDEvent)
 {
 	// TODO: Add your message handler code here and/or call default
 	if (nIDEvent == 1000) {
-		updateTimers();
-		if (isDisplayDirty()) {
+		UpdateDisplayTimers();
+		if (IsDisplayDirty()) {
 			refreshDisplay();
 		}
-		updateHardware();
+		UpdateHardware();
 	}
 
 	CFormView::OnTimer(nIDEvent);
