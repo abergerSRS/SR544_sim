@@ -147,7 +147,7 @@ void CSR544simView::OnInitialUpdate()
 	mLedPlus.SetBitmap(offPlus_bmp);
 	mLedMinus.SetBitmap(offMinus_bmp);
 			
-	SetTimer(1000, 10, NULL);
+	SetTimer(1000, 10, NULL); // SetTimer(timer ID, interval (ms), NULL)
 
 	InitializeInstrument();
 	InitializeFrontPanel();
@@ -228,6 +228,14 @@ void CSR544simView::OnTimer(UINT_PTR nIDEvent)
 		}
 		UpdateHardware();
 	}
+
+	CString str(_T(""));
+	while (!IsTxEmpty(Usb))
+	{
+		str.AppendChar(TransmitCharacter(Usb));
+	}
+	appendOutput(str);
+	OutputDebugString(str);
 
 	CFormView::OnTimer(nIDEvent);
 }
@@ -330,14 +338,14 @@ void CSR544simView::OnBnClickedBtnSync()
 	*/
 
 	// Example for writing Debug output to Main Form window
-	/*
+	
 	CString str(_T("Hello"));
 	str += " World";
 	str.Format(_T("%s -> This is a number: %d"), str, 5);
 
 	appendOutput(CString(_T("Send to output")));
 	appendOutput(str);
-	*/
+	
 
 	onButton(BTN_SYNCEDGE);
 }
