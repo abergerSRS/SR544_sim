@@ -195,6 +195,20 @@ void CSR544simView::OnPrint(CDC* pDC, CPrintInfo* /*pInfo*/)
 	// TODO: add customized printing code here
 }
 
+void CSR544simView::OnRButtonUp(UINT /* nFlags */, CPoint point)
+{
+	ClientToScreen(&point);
+	OnContextMenu(this, point);
+}
+
+void CSR544simView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
+{
+#ifndef SHARED_HANDLERS
+	theApp.GetContextMenuManager()->ShowPopupMenu(IDR_POPUP_EDIT, point.x, point.y, this, TRUE);
+#endif
+}
+
+
 // CSR544simView diagnostics
 
 #ifdef _DEBUG
@@ -230,19 +244,21 @@ void CSR544simView::OnTimer(UINT_PTR nIDEvent)
 	}
 
 	CString str(_T(""));
-	while (!IsTxEmpty(Usb))
-	{
-		str.AppendChar(TransmitCharacter(Usb));
-	}
-	appendOutput(str);
-	OutputDebugString(str);
+	if (!IsTxEmpty(Usb)) {
+		while (!IsTxEmpty(Usb))
+		{
+			str.AppendChar(TransmitCharacter(Usb));
+		}
+		appendOutput(str);
+		// OutputDebugString(str);
+	}	
 
 	CFormView::OnTimer(nIDEvent);
 }
 
 void CSR544simView::appendOutput(CString &str)
 {
-	CMainFrame *pFrame = (CMainFrame *)GetParentFrame();
+	CMainFrame *pFrame = (CMainFrame *)EnsureParentFrame();
 	COutputWnd *pOutput = pFrame->getOutputWnd();
 	pOutput->appendDebug(str);
 }
@@ -338,14 +354,14 @@ void CSR544simView::OnBnClickedBtnSync()
 	*/
 
 	// Example for writing Debug output to Main Form window
-	
+	/*
 	CString str(_T("Hello"));
 	str += " World";
 	str.Format(_T("%s -> This is a number: %d"), str, 5);
 
 	appendOutput(CString(_T("Send to output")));
 	appendOutput(str);
-	
+	*/
 
 	onButton(BTN_SYNCEDGE);
 }
