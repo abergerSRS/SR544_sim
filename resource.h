@@ -152,14 +152,16 @@
 #define IDC_CHOP_UNLCK                  1059
 #define IDC_BTN_STORE                   1060
 #define IDC_BTN_RECALL                  1061
+#define IDC_REMTERM                     1066
+#define IDC_SEND_REM                    1067
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        318
+#define _APS_NEXT_RESOURCE_VALUE        319
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1060
+#define _APS_NEXT_CONTROL_VALUE         1068
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif

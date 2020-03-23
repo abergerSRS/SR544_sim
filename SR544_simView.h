@@ -49,8 +49,8 @@ protected:
 // Generated message map functions
 protected:
 	afx_msg void OnFilePrintPreview();
-	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
-	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
+//	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
+//	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	DECLARE_MESSAGE_MAP()
 public:
 	// Sync Edge Check Boxes
@@ -137,9 +137,13 @@ public:
 	void appendOutput(CString &str);
 	void refreshDisplay(void);
 	void refresh7seg(void);
-	void refreshPlusMinus(void);
-
+	void refreshPlusMinus(void);	
 	
+	afx_msg void OnEnChangeRemterm();
+	CString m_RemTerm;
+	afx_msg void OnBnClickedSendRem();
+	CButton mSendRem;
+	CEdit m_RemTermCtrl;
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp

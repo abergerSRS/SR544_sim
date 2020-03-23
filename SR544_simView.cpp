@@ -61,6 +61,8 @@ BEGIN_MESSAGE_MAP(CSR544simView, CFormView)
 	ON_BN_CLICKED(IDC_BTN_RUNSTOP, &CSR544simView::OnBnClickedBtnRunstop)
 	ON_BN_CLICKED(IDC_BTN_STORE, &CSR544simView::OnBnClickedBtnStore)
 	ON_BN_CLICKED(IDC_BTN_RECALL, &CSR544simView::OnBnClickedBtnRecall)
+	ON_EN_CHANGE(IDC_REMTERM, &CSR544simView::OnEnChangeRemterm)
+	ON_BN_CLICKED(IDC_SEND_REM, &CSR544simView::OnBnClickedSendRem)
 END_MESSAGE_MAP()
 
 // CSR544simView construction/destruction
@@ -114,6 +116,8 @@ void CSR544simView::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LED_NUMENTRY, mLedNumEntry);
 	DDX_Control(pDX, IDC_CHOP_LCK, mChopLck);
 	DDX_Control(pDX, IDC_CHOP_UNLCK, mChopUnlck);
+	DDX_Control(pDX, IDC_SEND_REM, mSendRem);
+	DDX_Control(pDX, IDC_REMTERM, m_RemTermCtrl);
 }
 
 BOOL CSR544simView::PreCreateWindow(CREATESTRUCT& cs)
@@ -188,20 +192,6 @@ void CSR544simView::OnPrint(CDC* pDC, CPrintInfo* /*pInfo*/)
 {
 	// TODO: add customized printing code here
 }
-
-void CSR544simView::OnRButtonUp(UINT /* nFlags */, CPoint point)
-{
-	ClientToScreen(&point);
-	OnContextMenu(this, point);
-}
-
-void CSR544simView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
-{
-#ifndef SHARED_HANDLERS
-	theApp.GetContextMenuManager()->ShowPopupMenu(IDR_POPUP_EDIT, point.x, point.y, this, TRUE);
-#endif
-}
-
 
 // CSR544simView diagnostics
 
@@ -333,9 +323,9 @@ void CSR544simView::OnBnClickedBtnSync()
 {
 	// TODO: Add your control notification handler code here
 	// Example for writing Debug output 
-	/*
+	
 	OutputDebugString(_T("Sync clicked\n"));
-	*/
+	
 
 	// Example for writing Debug output to Main Form window
 	/*
@@ -484,4 +474,23 @@ void CSR544simView::OnBnClickedBtnStore()
 void CSR544simView::OnBnClickedBtnRecall()
 {
 	onButton(BTN_RECALL);
+}
+
+
+void CSR544simView::OnEnChangeRemterm()
+{
+	// TODO:  If this is a RICHEDIT control, the control will not
+	// send this notification unless you override the CFormView::OnInitDialog()
+	// function and call CRichEditCtrl().SetEventMask()
+	// with the ENM_CHANGE flag ORed into the mask.
+
+	// TODO:  Add your control notification handler code here
+}
+
+
+void CSR544simView::OnBnClickedSendRem()
+{
+	CString command = _T("");
+	m_RemTermCtrl.GetWindowTextW(command);
+	OutputDebugString(command);
 }
