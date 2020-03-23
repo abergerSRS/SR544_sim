@@ -20,6 +20,8 @@
 #include "display.h"
 #include "flash_kinetis.h"
 #include "hardware.h"
+#include "remoteIfx.h"
+#include "parser.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -323,9 +325,9 @@ void CSR544simView::OnBnClickedBtnSync()
 {
 	// TODO: Add your control notification handler code here
 	// Example for writing Debug output 
-	
+	/*
 	OutputDebugString(_T("Sync clicked\n"));
-	
+	*/
 
 	// Example for writing Debug output to Main Form window
 	/*
@@ -491,6 +493,15 @@ void CSR544simView::OnEnChangeRemterm()
 void CSR544simView::OnBnClickedSendRem()
 {
 	CString command = _T("");
+		
 	m_RemTermCtrl.GetWindowTextW(command);
-	OutputDebugString(command);
+
+	int length = m_RemTermCtrl.GetWindowTextLengthW();
+
+	for (int i = 0; i < length; i++) {
+		ReceiveCharacter(Usb, toupper(command[i]));
+	}
+	ReceiveCharacter(Usb, '\r');
+
+	do_commands();
 }
