@@ -144,6 +144,8 @@ public:
 	afx_msg void OnBnClickedSendRem();
 	CButton mSendRem;
 	CEdit m_RemTermCtrl;
+	CButton mUsbComm;
+	CButton mErrLed;
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp

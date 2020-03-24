@@ -120,6 +120,8 @@ void CSR544simView::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_CHOP_UNLCK, mChopUnlck);
 	DDX_Control(pDX, IDC_SEND_REM, mSendRem);
 	DDX_Control(pDX, IDC_REMTERM, m_RemTermCtrl);
+	DDX_Control(pDX, IDC_USB_LED, mUsbComm);
+	DDX_Control(pDX, IDC_ERR_LED, mErrLed);
 }
 
 BOOL CSR544simView::PreCreateWindow(CREATESTRUCT& cs)
@@ -251,6 +253,7 @@ void CSR544simView::OnTimer(UINT_PTR nIDEvent)
 		}
 		appendOutput(str);
 		// OutputDebugString(str);
+		StartUsbBusy();
 	}	
 
 	CFormView::OnTimer(nIDEvent);
@@ -300,6 +303,7 @@ void CSR544simView::refreshDisplay(void)
 	mSetMultN.SetCheck(getLED(MD_SET_MULTN));
 	mSetDivM.SetCheck(getLED(MD_SET_DIVM));
 	mSetVCOFS.SetCheck(getLED(MD_SET_VCOFS));
+	mUsbComm.SetCheck(getLED(LED_USB));
 
 	// refresh plus/minus
 	refreshPlusMinus();
@@ -318,6 +322,12 @@ void CSR544simView::refreshDisplay(void)
 
 	// refresh Numeric Entry LED
 	mLedNumEntry.SetCheck(getLED(LED_NUMENTRY));
+
+	// refresh Usb Comm LED
+	mUsbComm.SetCheck(getLED(LED_USB));
+
+	// referesh Error LED
+	mErrLed.SetCheck(getLED(LED_ERR));
 
 	// refresh 7-seg displays
 	refresh7seg();
@@ -526,6 +536,7 @@ void CSR544simView::OnBnClickedSendRem()
 		ReceiveCharacter(Usb, toupper(command[i]));
 	}
 	ReceiveCharacter(Usb, '\r');
+	StartUsbBusy();
 
 	do_commands();
 }

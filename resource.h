@@ -154,6 +154,8 @@
 #define IDC_BTN_RECALL                  1061
 #define IDC_REMTERM                     1066
 #define IDC_SEND_REM                    1067
+#define IDC_USB_LED                     1068
+#define IDC_ERR_LED                     1069
 
 // Next default values for new objects
 // 
@@ -161,7 +163,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        319
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1068
+#define _APS_NEXT_CONTROL_VALUE         1070
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif
