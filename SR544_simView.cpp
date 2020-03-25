@@ -378,12 +378,25 @@ void CSR544simView::OnBnClickedBtnSync()
 
 void CSR544simView::OnBnClickedBtnSrc()
 {
+	// Check to see if shift key is down
+	if (GetKeyState(VK_SHIFT) & 0x8000) {
+		ButtonIsDown();
+	}
+	else {
+		ButtonIsUp();
+	}
 	onButton(BTN_SOURCE);
 }
 
 
 void CSR544simView::OnBnClickedBtnCtrl()
 {
+	// Check to see if shift key is down
+	if (GetKeyState(VK_SHIFT) & 0x8000) {
+		ButtonIsDown();
+	} else {
+		ButtonIsUp();
+	}
 	onButton(BTN_CONTROL);
 }
 
