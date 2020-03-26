@@ -238,7 +238,9 @@ void CSR544simView::OnTimer(UINT_PTR nIDEvent)
 {
 	// TODO: Add your message handler code here and/or call default
 	if (nIDEvent == 1000) {
+		DoCommands();
 		UpdateDisplayTimers();
+		UpdateHardwareTimers();
 		if (IsDisplayDirty()) {
 			refreshDisplay();
 		}
@@ -550,6 +552,4 @@ void CSR544simView::OnBnClickedSendRem()
 	}
 	ReceiveCharacter(Usb, '\r');
 	StartUsbBusy();
-
-	do_commands();
 }
