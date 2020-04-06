@@ -146,6 +146,9 @@ public:
 	CEdit m_RemTermCtrl;
 	CButton mUsbComm;
 	CButton mErrLed;
+	afx_msg void OnBnClickedKnobPush();
+	afx_msg void OnBnClickedKnobCcw();
+	afx_msg void OnBnClickedKnobCw();
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp

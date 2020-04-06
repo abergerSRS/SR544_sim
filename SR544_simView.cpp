@@ -65,6 +65,9 @@ BEGIN_MESSAGE_MAP(CSR544simView, CFormView)
 	ON_BN_CLICKED(IDC_BTN_RECALL, &CSR544simView::OnBnClickedBtnRecall)
 	ON_EN_CHANGE(IDC_REMTERM, &CSR544simView::OnEnChangeRemterm)
 	ON_BN_CLICKED(IDC_SEND_REM, &CSR544simView::OnBnClickedSendRem)
+	ON_BN_CLICKED(IDC_KNOB_PUSH, &CSR544simView::OnBnClickedKnobPush)
+	ON_BN_CLICKED(IDC_KNOB_CCW, &CSR544simView::OnBnClickedKnobCcw)
+	ON_BN_CLICKED(IDC_KNOB_CW, &CSR544simView::OnBnClickedKnobCw)
 END_MESSAGE_MAP()
 
 // CSR544simView construction/destruction
@@ -339,7 +342,7 @@ void CSR544simView::refreshDisplay(void)
 
 void CSR544simView::refresh7seg(void) {
 	for (int i = 0; i < NUM_DIGITS; i++) {
-		seg[i].setValue(getSegDigit(i));
+		seg[i].setValue(GetSegDigit(i));
 	}
 }
 
@@ -552,4 +555,24 @@ void CSR544simView::OnBnClickedSendRem()
 	}
 	ReceiveCharacter(Usb, '\r');
 	StartUsbBusy();
+}
+
+
+void CSR544simView::OnBnClickedKnobPush()
+{
+	ToggleDigitSelectMode();
+}
+
+
+void CSR544simView::OnBnClickedKnobCcw()
+{
+	SetKnobCountDirection(KNOB_DN);
+	OnKnobTurn();
+}
+
+
+void CSR544simView::OnBnClickedKnobCw()
+{
+	SetKnobCountDirection(KNOB_UP);
+	OnKnobTurn();
 }
