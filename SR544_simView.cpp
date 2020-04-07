@@ -68,6 +68,7 @@ BEGIN_MESSAGE_MAP(CSR544simView, CFormView)
 	ON_BN_CLICKED(IDC_KNOB_PUSH, &CSR544simView::OnBnClickedKnobPush)
 	ON_BN_CLICKED(IDC_KNOB_CCW, &CSR544simView::OnBnClickedKnobCcw)
 	ON_BN_CLICKED(IDC_KNOB_CW, &CSR544simView::OnBnClickedKnobCw)
+	ON_BN_CLICKED(IDC_BTN_BACK, &CSR544simView::OnBnClickedBtnBack)
 END_MESSAGE_MAP()
 
 // CSR544simView construction/destruction
@@ -575,4 +576,10 @@ void CSR544simView::OnBnClickedKnobCw()
 {
 	SetKnobCountDirection(KNOB_UP);
 	OnKnobTurn();
+}
+
+
+void CSR544simView::OnBnClickedBtnBack()
+{
+	onButton(BTN_BACK);
 }

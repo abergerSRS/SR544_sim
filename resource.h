@@ -153,6 +153,8 @@
 #define IDC_BTN_STORE                   1060
 #define IDC_BTN_RECALL                  1061
 #define IDC_KNOB_PUSH                   1062
+#define IDC_BTN_RECALL2                 1063
+#define IDC_BTN_BACK                    1063
 #define IDC_REMTERM                     1066
 #define IDC_SEND_REM                    1067
 #define IDC_USB_LED                     1068

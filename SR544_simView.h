@@ -149,6 +149,7 @@ public:
 	afx_msg void OnBnClickedKnobPush();
 	afx_msg void OnBnClickedKnobCcw();
 	afx_msg void OnBnClickedKnobCw();
+	afx_msg void OnBnClickedBtnBack();
 };
 
 #ifndef _DEBUG  // debug version in SR544_simView.cpp
