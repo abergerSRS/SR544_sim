@@ -158,6 +158,9 @@ void CSR544simView::OnInitialUpdate()
 	InitializeInstrument();
 	InitializeFrontPanel();
 
+	SetNouter(100);
+	SetNinner(10);
+
 	// initialize all 9 memory locations to the default startup state
 	/*
 	for (int i = 1; i <= 9; i++) {
@@ -343,7 +346,7 @@ void CSR544simView::refreshDisplay(void)
 
 void CSR544simView::refresh7seg(void) {
 	for (int i = 0; i < NUM_DIGITS; i++) {
-		seg[i].setValue(GetSegDigit(i));
+		seg[i].setValue(GetSegDigitForShiftReg(i));
 	}
 }
 
