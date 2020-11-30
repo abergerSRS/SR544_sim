@@ -17,7 +17,7 @@ protected:
 public:
 	unsigned char val;
 	void setValue(unsigned char value);
-	
+	bool selected;
 };
 
 

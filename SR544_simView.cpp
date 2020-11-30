@@ -346,7 +346,12 @@ void CSR544simView::refreshDisplay(void)
 
 void CSR544simView::refresh7seg(void) {
 	for (int i = 0; i < NUM_DIGITS; i++) {
-		seg[i].setValue(GetSegDigitForShiftReg(i));
+		if (i == GetDimDigit() && InDigitSelectMode()) {
+			seg[i].selected = IsDigitDim();
+		} else {
+			seg[i].selected = false;
+		}
+		seg[i].setValue(GetSegDigitForShiftReg(i));		
 	}
 }
 
@@ -519,7 +524,12 @@ void CSR544simView::OnBnClickedBtnRel()
 
 void CSR544simView::OnBnClickedBtnRunstop()
 {
-	onButton(BTN_RUNSTOP);
+	if (GetKeyState(VK_SHIFT) & 0x8000) {
+		onBtnRunStopHold();
+	}
+	else {
+		onBtnRunStopRelease();
+	}
 }
 
 
@@ -564,7 +574,9 @@ void CSR544simView::OnBnClickedSendRem()
 
 void CSR544simView::OnBnClickedKnobPush()
 {
-	ToggleDigitSelectMode();
+	if (GetMainDisplay() >= MD_SET_INTRATE) {
+		ToggleDigitSelectMode();
+	}
 }
 
 

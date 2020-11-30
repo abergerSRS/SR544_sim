@@ -13,6 +13,7 @@ IMPLEMENT_DYNAMIC(CSevenSegment, CStatic)
 CSevenSegment::CSevenSegment()
 {
 	val = 0x00;
+	selected = false;
 }
 
 CSevenSegment::~CSevenSegment()
@@ -57,9 +58,7 @@ void CSevenSegment::setValue(unsigned char value)
 
 void CSevenSegment::OnPaint()
 {
-	CPaintDC dc(this); // device context for painting
-
-	bool selected = false;
+	CPaintDC dc(this); // device context for painting	
 
 	CRect rect;
 	this->GetWindowRect(&rect);
@@ -73,13 +72,12 @@ void CSevenSegment::OnPaint()
 	int segTop = 4;
 	int segLeft = 6;
 
-
-	CPen selectedGreenPen(PS_SOLID, 3, RGB(0, 255, 0));
-	CPen onGreenPen(PS_SOLID, 3, RGB(0, 225, 0));
+	CPen selectedGreenPen(PS_SOLID, 3, RGB(0, 175, 0));
+	CPen onGreenPen(PS_SOLID, 3, RGB(0, 255, 0));
 	CPen offGreenPen(PS_SOLID, 3, RGB(0, 50, 0));
 
-	CBrush selectedGreenBrush(RGB(0, 255, 0));
-	CBrush onGreenBrush(RGB(0, 200, 0));
+	CBrush selectedGreenBrush(RGB(0, 175, 0));
+	CBrush onGreenBrush(RGB(0, 255, 0));
 	CBrush offGreenBrush(RGB(0, 100, 0));
 
 	CPen *oldPen = dc.SelectObject(&offGreenPen);
