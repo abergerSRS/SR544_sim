@@ -168,7 +168,7 @@ void CSR544simView::OnInitialUpdate()
 	}
 	*/
 	
-	UpdateDisplay();	// updates instrument model display variables
+	InitialUpdateDisplay();	// updates instrument model display variables
 	refreshDisplay();	// simulates the hardware refresh (actually pushes changes to FP)
 }
 
@@ -387,7 +387,7 @@ void CSR544simView::OnBnClickedBtnSync()
 	appendOutput(str);
 	*/
 
-	onButton(BTN_SYNCEDGE);
+	OnButton(BTN_SYNCEDGE);
 }
 
 void CSR544simView::OnBnClickedBtnSrc()
@@ -399,7 +399,7 @@ void CSR544simView::OnBnClickedBtnSrc()
 	else {
 		ButtonIsUp();
 	}
-	onButton(BTN_SOURCE);
+	OnButton(BTN_SOURCE);
 }
 
 
@@ -411,137 +411,137 @@ void CSR544simView::OnBnClickedBtnCtrl()
 	} else {
 		ButtonIsUp();
 	}
-	onButton(BTN_CONTROL);
+	OnButton(BTN_CONTROL);
 }
 
 
 void CSR544simView::OnBnClickedSelectL()
 {
-	onButton(BTN_SELECT_L);
+	OnButton(BTN_SELECT_L);
 }
 
 
 void CSR544simView::OnBnClickedSelectR()
 {
-	onButton(BTN_SELECT_R);
+	OnButton(BTN_SELECT_R);
 }
 
 
 void CSR544simView::OnBnClickedBtn0()
 {
-	onButton(BTN_0);
+	OnButton(BTN_0);
 }
 
 
 void CSR544simView::OnBnClickedBtn1()
 {
-	onButton(BTN_1);
+	OnButton(BTN_1);
 }
 
 
 void CSR544simView::OnBnClickedBtn2()
 {
-	onButton(BTN_2);
+	OnButton(BTN_2);
 }
 
 
 void CSR544simView::OnBnClickedBtn3()
 {
-	onButton(BTN_3);
+	OnButton(BTN_3);
 }
 
 
 void CSR544simView::OnBnClickedBtn4()
 {
-	onButton(BTN_4);
+	OnButton(BTN_4);
 }
 
 
 void CSR544simView::OnBnClickedBtn5()
 {
-	onButton(BTN_5);
+	OnButton(BTN_5);
 }
 
 
 void CSR544simView::OnBnClickedBtn6()
 {
-	onButton(BTN_6);
+	OnButton(BTN_6);
 }
 
 
 void CSR544simView::OnBnClickedBtn7()
 {
-	onButton(BTN_7);
+	OnButton(BTN_7);
 }
 
 
 void CSR544simView::OnBnClickedBtn8()
 {
-	onButton(BTN_8);
+	OnButton(BTN_8);
 }
 
 
 void CSR544simView::OnBnClickedBtn9()
 {
-	onButton(BTN_9);
+	OnButton(BTN_9);
 }
 
 
 void CSR544simView::OnBnClickedBtnDp()
 {
-	onButton(BTN_POINT);
+	OnButton(BTN_POINT);
 }
 
 
 void CSR544simView::OnBnClickedBtnPm()
 {
-	onButton(BTN_PLUS_MINUS);
+	OnButton(BTN_PLUS_MINUS);
 }
 
 
 void CSR544simView::OnBnClickedBtnEnter()
 {
-	onButton(BTN_ENTER);
+	OnButton(BTN_ENTER);
 }
 
 
 void CSR544simView::OnBnClickedBtnBkspc()
 {
-	onButton(BTN_BS);
+	OnButton(BTN_BS);
 }
 
 
 void CSR544simView::OnBnClickedBtnCancel()
 {
-	onButton(BTN_CANCEL);
+	OnButton(BTN_CANCEL);
 }
 
 void CSR544simView::OnBnClickedBtnRel()
 {
-	onButton(BTN_RELPHASE);
+	OnButton(BTN_RELPHASE);
 }
 
 
 void CSR544simView::OnBnClickedBtnRunstop()
 {
 	if (GetKeyState(VK_SHIFT) & 0x8000) {
-		onBtnRunStopHold();
+		OnBtnRunStopHold();
 	}
 	else {
-		onBtnRunStopRelease();
+		OnBtnRunStopRelease();
 	}
 }
 
 
 void CSR544simView::OnBnClickedBtnStore()
 {
-	onButton(BTN_STORE);
+	OnButton(BTN_STORE);
 }
 
 
 void CSR544simView::OnBnClickedBtnRecall()
 {
-	onButton(BTN_RECALL);
+	OnButton(BTN_RECALL);
 }
 
 
@@ -596,5 +596,5 @@ void CSR544simView::OnBnClickedKnobCw()
 
 void CSR544simView::OnBnClickedBtnBack()
 {
-	onButton(BTN_BACK);
+	OnButton(BTN_BACK);
 }
