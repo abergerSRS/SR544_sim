@@ -242,14 +242,19 @@ CSR544simDoc* CSR544simView::GetDocument() const // non-debug version is inline
 // CSR544simView message handlers
 
 void CSR544simView::OnTimer(UINT_PTR nIDEvent)
-{
-	// TODO: Add your message handler code here and/or call default
+{	
+	uint32_t timeSinceLastBtnPress = 0;
 	if (nIDEvent == 1000) {
 		DoCommands();
 		UpdateDisplayTimers();
 		UpdateHardwareTimers();
 		if (IsDisplayDirty()) {
 			refreshDisplay();
+		}
+		timeSinceLastBtnPress = GetTickCount_ms() - GetTimeOfLastBtnPress();
+		if(IsConfigDirty() && (timeSinceLastBtnPress > 500)) {
+			SaveCurrentConfig(0);
+			ConfigIsClean();
 		}
 		UpdateHardware();
 	}
@@ -264,6 +269,8 @@ void CSR544simView::OnTimer(UINT_PTR nIDEvent)
 		// OutputDebugString(str);
 		StartUsbBusy();
 	}	
+
+	UpdateDisplayTimers();
 
 	CFormView::OnTimer(nIDEvent);
 }
